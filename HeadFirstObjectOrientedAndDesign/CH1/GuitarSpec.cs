@@ -40,8 +40,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 				return false;
 			if(obj is not GuitarSpec)
 				return false;
-			if(ReferenceEquals(this, obj)) 
-				return true;
+			//if(ReferenceEquals(this, obj)) 
+			//	return true;
 
 			GuitarSpec spec = obj as GuitarSpec;
 
