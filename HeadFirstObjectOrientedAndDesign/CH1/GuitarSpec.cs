@@ -13,15 +13,17 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 		Type type { get; set; }
 		Wood backWood { get; set; }
 		Wood topWood { get; set; }
+        public int numString { get; set; }
 
         public GuitarSpec(Builder builder , string model , Type type ,
-			Wood backWood , Wood topWood)
+			Wood backWood , Wood topWood , int numString)
         {
             this.builder = builder;
 			this.model = model;
 			this.type = type;
 			this.backWood = backWood;
 			this.topWood = topWood;
+			this.numString = numString;
         }
         public Builder getBuilder() =>
 			builder;
@@ -33,6 +35,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 			backWood;
 		public Wood getTopWood() =>
 			topWood;
+		public int getNumString() =>
+			numString;
 
 		public override bool Equals(object? obj)
 		{
@@ -40,8 +44,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 				return false;
 			if(obj is not GuitarSpec)
 				return false;
-			//if(ReferenceEquals(this, obj)) 
-			//	return true;
+			if (ReferenceEquals(this, obj))
+				return true;
 
 			GuitarSpec spec = obj as GuitarSpec;
 
@@ -49,7 +53,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 				   backWood.Equals(spec.backWood) &&
 				   topWood.Equals(spec.topWood) &&
 				   builder.Equals(spec.builder) &&
-				   model.Equals(spec.model);
+				   model.ToLower().Equals(spec.model.ToLower()) &&
+				   numString.Equals(spec.numString);
 		}
 
 	}

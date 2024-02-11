@@ -8,17 +8,12 @@ namespace HeadFirstObjectOrientedAndDesign
     {
         public static void initializeInventory(Inventory inventory)
         {
-            inventory.addGuitar("V95693",
-                            1499.95, Builder.FENDER,
-                            "Stratocastor", CH1.Type.ELECTRIC,
-                            Wood.ALDER, Wood.ALDER);
+            GuitarSpec spec = new(Builder.FENDER,"Stratocastor",
+                         CH1.Type.ELECTRIC,Wood.ALDER, Wood.ALDER);
+
+            inventory.addGuitar("V95693",1499.95, spec);
             
-
-            inventory.addGuitar("V9512",
-                            1549.95, Builder.FENDER,
-                            "Stratocastor", CH1.Type.ELECTRIC,
-                            Wood.ALDER, Wood.ALDER);
-
+            inventory.addGuitar("V9512",1549.95, spec);
         }
         static void Main(string[] args)
         {

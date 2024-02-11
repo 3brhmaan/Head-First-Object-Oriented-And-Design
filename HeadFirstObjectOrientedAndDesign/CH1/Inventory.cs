@@ -11,11 +11,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
         List<Guitar> guitars;
         public Inventory() =>
             guitars = new List<Guitar>();
-        public void addGuitar(String serialNumber, double price,
-                Builder builder, String model,
-                Type type, Wood backWood, Wood topWood)
+        public void addGuitar(String serialNumber, double price, GuitarSpec guitarSpec)
         {
-			GuitarSpec guitarSpec = new(builder, model, type, backWood, topWood);
             Guitar guitar = new Guitar(serialNumber, price, guitarSpec);
             guitars.Add(guitar);
         }
@@ -36,10 +33,8 @@ namespace HeadFirstObjectOrientedAndDesign.CH1
 			{
 				GuitarSpec guitarSpec = guitar.getSpec();
 
-				if (!(searchSpec.Equals(guitarSpec)))
-					continue;
-
-				matchingGuitars.Add(guitar);
+				if (searchSpec.Equals(guitarSpec))
+				    matchingGuitars.Add(guitar);
 			}
 
 			return matchingGuitars ;
